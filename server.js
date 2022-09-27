@@ -13,7 +13,7 @@ connectDatabase();
 app.use(express.json({ extended: false }));
 app.use(
     cors({
-        origin: 'http://localhost:4000'
+        origin: 'http://localhost:3000'
     })
 );
 
@@ -53,5 +53,5 @@ app.post(
 );
 
 //connection listener
-const port = 4000;
+const port = 3000;
 app.listen(port, () => console.log(`express server running on port ${port}`));
