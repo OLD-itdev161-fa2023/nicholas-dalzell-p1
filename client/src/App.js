@@ -8,10 +8,10 @@ class App extends React.Component {
     list: []
   }
 
+  //refresh the table
   componentDidMount() {
     this.tableRefresh();
   }
-
 
   tableRefresh = () => {
     axios.get('http://localhost:5000/api/player-list')
@@ -25,11 +25,13 @@ class App extends React.Component {
       })
   }
 
+  //returns the header, Add player form, refresh list button to update
+  //table, and displays the table contents entered after refreshing
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          Players listed here
+          Add Players to your roster!
         </header>
         <PlayerAddForm />
         <section id = "player-table">
@@ -41,17 +43,16 @@ class App extends React.Component {
             <tbody>
               {this.state.list.map((item) =>
                 <tr>
-                  <td key="1">{item.name}</td>
-                  <td key="2">{item.position}</td>
-                  <td key="3">{item.number}</td>
+                  <td>{item.name}</td>
+                  <td>{item.position}</td>
+                  <td>{item.number}</td>
                 </tr>)}
             </tbody>
           </table>
         </section>
       </div>
     );
-  }
-  
+  }  
 }
 
 export default App;

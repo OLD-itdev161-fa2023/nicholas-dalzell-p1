@@ -12,11 +12,7 @@ connectDatabase();
 
 //configure middleware
 app.use(express.json({ extended: false }));
-app.use(
-    cors({
-        origin: 'http://localhost:3000'
-    })
-);
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 //API endpoints
 /**
@@ -31,13 +27,12 @@ app.get('/', (req, res) =>
  * @route POST api/player-add
  * @desc add player entry
  */
-app.post(
-    '/api/player-add',
+app.post('/api/player-add',
     [
-        check('playerName', 'Please enter your name')
+        check('playerName', 'Please enter Players name')
             .not()
             .isEmpty(),
-        check('playerPosition', 'Please enter your email')
+        check('playerPosition', 'Please enter the position')
             .not()
             .isEmpty(),
         check('playerNumber', 'Please enter a number between 0 and 99')
@@ -46,19 +41,20 @@ app.post(
     ],
     (req, res) => {
         const errors = validationResult(req);
+        //return error if inputs are empty. else create new player with 
+        //entered data
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
         } else {
-            //return res.send(req.body);
             var playerData = new Player({
-                name: req.body.playerType,
+                name: req.body.playerName,
                 position: req.body.playerPosition,
                 number: req.body.playerNumber
             })
-
+            //save new player data
             playerData.save((error, item) => {
                 if(!error){
-                    console.log(`Player Data added: ${item.name}`);
+                    console.log(`Player added: ${item.name}`);
                     res.send(`Player added: ${item.name}`);
                 }
                 else
@@ -67,6 +63,22 @@ app.post(
         }
     }
 );
+
+/**
+ * @route GET api/player-list
+ * @desc return all players
+ */
+//displays all entered players
+app.get('/api/player-list',
+(req, res) => 
+    Player.find((error, items) => {
+    if (!error)
+        res.send(items);
+        else
+        console.error(error.message);
+    }
+)
+); 
 
 //connection listener
 const port = 5000;

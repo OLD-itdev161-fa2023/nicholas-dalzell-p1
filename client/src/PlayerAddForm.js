@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+//PlayerAddForm
 class PlayerAddForm extends React.Component {
     constructor(){
         super()
@@ -13,12 +14,14 @@ class PlayerAddForm extends React.Component {
         "playerNumber": null
     }
 
+    //handler for data input
     inputChangeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    //handler for adding player
     async playerAddHandler(event) {
         event.preventDefault();
         console.log("click");
@@ -30,16 +33,16 @@ class PlayerAddForm extends React.Component {
         })
     }
 
+    //returns input information from form
     render() {
         return (
             <section id="add-player">
-              <form onSubmit={this.playerAddHandler}>
-                <select name="playerName" onChange={this.inputChangeHandler}>
-                </select>
-                <input position="playerPosition" onChange={this.inputChangeHandler}/>
-                <input number="playerNumber" onChange={this.inputChangeHandler}/>
-                <button type="submit">Add</button>
-              </form> 
+            <form onSubmit={this.playerAddHandler}>
+                <input name="playerName" onChange={this.inputChangeHandler}/>
+                <input name="playerPosition" onChange={this.inputChangeHandler}/>
+                <input name="playerNumber" onChange={this.inputChangeHandler}/>
+                <button type="submit">Add Player</button>
+            </form> 
             </section>
         )
     }

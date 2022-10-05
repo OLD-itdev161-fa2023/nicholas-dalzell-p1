@@ -37,11 +37,14 @@
   }
 }
 
+/*  simple css for player data tables */
 table {
   border-collapse: collapse;
+  align-self: center;
 }
 
 td {
+  width: 10em;
   padding: .5em;
   border: 1.5px solid black;
 }
