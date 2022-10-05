@@ -8,7 +8,7 @@ class App extends React.Component {
     list: []
   }
 
-  //refresh the table
+  //update the table
   componentDidMount() {
     this.tableUpdate();
   }
@@ -16,9 +16,7 @@ class App extends React.Component {
   tableUpdate = () => {
     axios.get('http://localhost:5000/api/player-list')
       .then((response) => {
-        this.setState({
-          list: response.data
-        })
+        this.setState({ list: response.data })
       })
       .catch((error) => {
         console.error(`Error updating data: ${error}`)
