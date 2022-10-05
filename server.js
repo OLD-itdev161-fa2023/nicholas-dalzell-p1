@@ -2,7 +2,7 @@ import express from 'express';
 import connectDatabase from './config/db';
 import { check, validationResult } from 'express-validator';
 import cors from 'cors';
-import Player from './models/players'
+import Player from './models/Players'
 
 //initialize express application
 const app = express();

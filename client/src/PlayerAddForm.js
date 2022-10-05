@@ -30,8 +30,6 @@ class PlayerAddForm extends React.Component {
         })
     }
 
-    
-    /*
     render() {
         return (
             <section id="add-player">
@@ -44,7 +42,7 @@ class PlayerAddForm extends React.Component {
               </form> 
             </section>
         )
-    }*/
+    }
 }
 
 export default PlayerAddForm;
