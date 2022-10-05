@@ -37,12 +37,25 @@ class PlayerAddForm extends React.Component {
     render() {
         return (
             <section id="add-player">
-            <form onSubmit={this.playerAddHandler}>
-                <input name="playerName" onChange={this.inputChangeHandler}/>
-                <input name="playerPosition" onChange={this.inputChangeHandler}/>
-                <input name="playerNumber" onChange={this.inputChangeHandler}/>
-                <button type="submit">Add Player</button>
-            </form> 
+                <form onSubmit={this.playerAddHandler}>
+                    <table>
+                        <thead><tr>
+                            <td>Player</td><td>Position</td><td>Number</td>
+                        </tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><input name="playerName" onChange={this.inputChangeHandler}/></td>
+                                <td><input name="playerPosition" onChange={this.inputChangeHandler}/></td>
+                                <td><input name="playerNumber" onChange={this.inputChangeHandler}/></td>
+                            </tr>
+                            <tr>
+                                <td>---</td>
+                                <td><button type="submit">Add Player</button></td>
+                                <td>---</td>
+                            </tr>
+                    </tbody>
+                    </table>
+                </form> 
             </section>
         )
     }

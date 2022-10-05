@@ -38,13 +38,27 @@
 }
 
 /*  simple css for player data tables */
+
+section {
+  border-collapse: collapse;
+  margin-top: 2em;
+}
+
 table {
   border-collapse: collapse;
-  align-self: center;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2em;
+}
+
+thead {
+  font-size: 125%;
+  font-weight: bold;
 }
 
 td {
   width: 10em;
-  padding: .5em;
-  border: 1.5px solid black;
+  padding: .75em;
+  border: 1.25px solid black;
 }

@@ -10,10 +10,10 @@ class App extends React.Component {
 
   //refresh the table
   componentDidMount() {
-    this.tableRefresh();
+    this.tableUpdate();
   }
 
-  tableRefresh = () => {
+  tableUpdate = () => {
     axios.get('http://localhost:5000/api/player-list')
       .then((response) => {
         this.setState({
@@ -21,7 +21,7 @@ class App extends React.Component {
         })
       })
       .catch((error) => {
-        console.error(`Error fetching data: ${error}`)
+        console.error(`Error updating data: ${error}`)
       })
   }
 
@@ -35,7 +35,7 @@ class App extends React.Component {
         </header>
         <PlayerAddForm />
         <section id = "player-table">
-          <button onClick = {this.tableRefresh}>Refresh List</button>
+          <button onClick = {this.tableUpdate}>Update List</button>
           <table>
             <thead><tr>
               <td>Player</td><td>Position</td><td>Number</td>

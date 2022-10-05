@@ -4,7 +4,7 @@ import config from 'config';
 //get the connection string
 const db = config.get('mongoURI');
 
-//connect to mongodb
+//connect to mongo database
 const connectDatabase = async () => {
     try {
         await mongoose.connect(db, {
