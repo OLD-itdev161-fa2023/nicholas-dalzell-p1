@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import PlayerAddForm from './PlayerAddForm';
+import AddPlayerForm from './AddPlayerForm';
 
 class App extends React.Component {
   state = {
@@ -31,7 +31,7 @@ class App extends React.Component {
         <header className="App-header">
           Add Players to your roster!
         </header>
-        <PlayerAddForm />
+        <AddPlayerForm />
         <section id = "player-table">
           <button onClick = {this.tableUpdate}>Update List</button>
           <table>

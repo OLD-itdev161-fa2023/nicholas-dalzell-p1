@@ -27,7 +27,7 @@ app.get('/', (req, res) =>
  * @route POST api/player-add
  * @desc add player entry
  */
-app.post('/api/player-add',
+app.post('/api/add-player',
     [
         check('playerName', 'Please enter Players name')
             .not()

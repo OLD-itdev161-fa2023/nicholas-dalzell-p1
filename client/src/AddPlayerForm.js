@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
-//PlayerAddForm
-class PlayerAddForm extends React.Component {
+//AddPlayerForm
+class AddPlayerForm extends React.Component {
     constructor(){
         super()
-        this.playerAddHandler = this.playerAddHandler.bind(this);
+        this.addPlayerHandler = this.addPlayerHandler.bind(this);
     }
 
     state = {
@@ -22,11 +22,11 @@ class PlayerAddForm extends React.Component {
     }
 
     //handler for adding player
-    async playerAddHandler(event) {
+    async addPlayerHandler(event) {
         event.preventDefault();
         console.log("click");
         console.log(this.state)
-        await axios.post('http://localhost:5000/api/player-add', this.state)
+        await axios.post('http://localhost:5000/api/add-player', this.state)
         .then()
         .catch((error) => {
             console.error(`Error adding item: ${error}`)
@@ -37,7 +37,7 @@ class PlayerAddForm extends React.Component {
     render() {
         return (
             <section id="add-player">
-                <form onSubmit={this.playerAddHandler}>
+                <form onSubmit={this.addPlayerHandler}>
                     <table>
                         <thead><tr>
                             <td>Player</td><td>Position</td><td>Number</td>
@@ -61,4 +61,4 @@ class PlayerAddForm extends React.Component {
     }
 }
 
-export default PlayerAddForm;
+export default AddPlayerForm;
